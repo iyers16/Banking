@@ -17,7 +17,8 @@ public class Transaction {
     public double getAmount() {
         return this.amount;
     }
-    
+
+    @Override
     String toString() {
         String output = "Transaction type: " + this.type + "\nTransaction amount: " + this.amount + "\n";
         return output;

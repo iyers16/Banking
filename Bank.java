@@ -17,8 +17,5 @@ public class Bank implements IBank {
     public String getAddress() {
 
     }
-    //void addClient(Client newClient);
-    // void displayClientAccounts(int clientId);
-    // void displayClientList();
-    // Client getClient(int id);
+    
 }

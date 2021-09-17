@@ -8,6 +8,33 @@ public class Account implements IAccount {
     protected double balance;
     protected Client owner;
     private static int counter = 0;
+    protected ArrayList<Transaction> transactionList;
+
+    public Account() {
+        Account.incrementAccountCount();
+        this.balance = 0d;
+        this.owner = NULL;
+        this.accountNumber = this.counter;
+        this.transactionList = new ArrayList<Transaction>();
+    }
+
+    public double deposit(double d) {
+        Transaction depo = new Transaction();
+        this.balance += d;
+        depo.setType("Deposit");
+        depo.setAmount(d);
+        this.transactionList.add(depo);
+        return balance;
+    }
+
+    public double withdrawal(double w) {
+        Transaction with = new Transaction();
+        this.balance -= w;
+        with.setType("Withdrawal");
+        with.setAmount(w);
+        this.transactionList.add(with);
+        return balance;
+    }
 
     public final void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;

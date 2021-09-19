@@ -48,6 +48,7 @@ public class Account implements IAccount {
 		String output = "\nAccount Number: " + this.accountNumber +
 						"\nBalance: " + this.balance + 
 						"\nOwner: " this.owner;
+		return output;
 	}
 
     public final void setAccountNumber(int accountNumber) {

@@ -1,6 +1,6 @@
 package banking;
 
-public class Transaction {
+public class Transaction implements ITransaction{
     private String type;
     private double amount;
 

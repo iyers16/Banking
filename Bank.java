@@ -3,6 +3,37 @@ package banking;
 public class Bank implements IBank {
 
     private String bankNumber, address;
+	private ArrayList<Client> clientList;
+
+	public Bank() {
+		this.bankNumber = NULL;
+		this.address = NULL;
+		this.clientList = new ArrayList<Client>;
+	}
+	
+	public void addClient(Client newClient) {
+		this.clientList.add(newClient);
+	}
+
+    public void displayClientAccounts(int clientId) {
+		getClient(clientId).displayAccounts();
+	}
+
+    public void displayClientList() {
+		System.out.println("List of clients:\n" + this.clientList);
+	}
+
+    public Client getClient(int id) {
+		for(int i = 0; i < clientList.size(); i++) {
+			if(clientList.get(i).getID() == id) {
+				return clientList.get(i);
+			}
+		}
+	}
+
+    public Account getClientAccount(int clientId, int accountNumber) {
+		return getClient(clientId).getAccount(accountNumber);
+	}
 
     public final void setBankNumber(String bankNumber) {
         this.bankNumber = bankNumber;
@@ -15,7 +46,7 @@ public class Bank implements IBank {
         this.address = address;
     }
     public String getAddress() {
-
+		return this.address;
     }
     
 }

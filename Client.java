@@ -23,7 +23,7 @@ public class Client implements IClient {
 	public void displayAccounts() {
 		System.out.println("List of accounts:\n" + this.accountList);
 	}
-	
+
 	public Account getAccount(int accountNumber) {
 		for(int i = 0; i < accountList.size(); i++) {
 			if(accountList.get(i).getAccountNumber() == accountNumber) {

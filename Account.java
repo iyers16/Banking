@@ -47,7 +47,7 @@ public class Account implements IAccount {
 	String toString() {
 		String output = "\nAccount Number: " + this.accountNumber +
 						"\nBalance: " + this.balance + 
-						"\nOwner: " this.owner;
+						"\nOwner: " + this.owner;
 		return output;
 	}
 

@@ -4,6 +4,11 @@ public class Transaction {
     private String type;
     private double amount;
 
+	public Transaction() {
+		this.type = NULL;
+		this.amount = 0d;
+	}
+
     public final void setType(String type) {
         this.type = type;
     }

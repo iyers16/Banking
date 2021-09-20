@@ -36,21 +36,21 @@ public class Account implements IAccount {
         return balance;
     }
     public ArrayList<Transaction> getTransactionList() {
-		return this.transactionList;
-	}
-	
-	public void displayAllTransactions() {
-		System.out.println("List of Transactions:\n" + this.transactionList);
-	}
-	
-	@Override
-	public String toString() {
-		// String output = "\nAccount Number: " + this.accountNumber +
-		// 				"\nBalance: " + this.balance + 
-		// 				"\nOwner: " + this.owner;
-		// return output;
+        return this.transactionList;
+    }
+
+    public void displayAllTransactions() {
+        System.out.println("List of Transactions:\n" + this.transactionList);
+    }
+
+    @Override
+    public String toString() {
+        // String output = "\nAccount Number: " + this.accountNumber +
+        // 				"\nBalance: " + this.balance + 
+        // 				"\nOwner: " + this.owner;
+        // return output;
         return null;
-	}
+    }
 
     public final void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;

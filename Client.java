@@ -6,15 +6,15 @@ public class Client implements IClient {
     private String firstName;
     private String lastName;
     private static int counter = 0;
-	private ArrayList<Account> accountList;
+    private ArrayList<Account> accountList;
 
-	public Client() {
-		++Client.counter;
-		this.id = Client.counter;
-		this.firstName = null;
-		this.lastName = null;
-		this.accountList = new ArrayList<Account>();
-	}
+    public Client() {
+        ++Client.counter;
+        this.id = Client.counter;
+        this.firstName = null;
+        this.lastName = null;
+        this.accountList = new ArrayList<Account>();
+    }
 
     public void addAccount(Account newAccount) {
         this.accountList.add(newAccount);
@@ -24,23 +24,23 @@ public class Client implements IClient {
         System.out.println("List of accounts:\n" + this.accountList);
     }
 
-	public Account getAccount(int accountNumber) {
+    public Account getAccount(int accountNumber) {
         // for(int i = 0; i < accountList.size(); i++) {
         //     if(accountList.get(i).getAccountNumber() == accountNumber) {
         //         return accountList.get(i);
         //     }
         // }
         return null;
-	}
+    }
 
-	@Override
-	public String toString() {
-		// String output = "\nClient ID: " + this.id +
-		// 				"\nClient first name: " + this.firstName +
-		// 				"\nClient last name: " + this.lastName;
-		// return output;
+    @Override
+    public String toString() {
+        // String output = "\nClient ID: " + this.id +
+        // 				"\nClient first name: " + this.firstName +
+        // 				"\nClient last name: " + this.lastName;
+        // return output;
         return null;
-	}
+    }
 
     public final void setID(int id) {
         this.id = id;

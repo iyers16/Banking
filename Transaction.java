@@ -5,18 +5,18 @@ public class Transaction implements ITransaction{
     private double amount;
 
     public Transaction() {
-        this.type = NULL;
-        this.amount = 0d;
+        this.type = null;
+        this.amount = 0.0d;
     }
 
-    public final void setType(String type) {
+    public void setType(String type) {
         this.type = type;
     }
     public String getType() {
         return this.type;
     }
 
-    public final void setAmount(double amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
     public double getAmount() {
@@ -25,9 +25,10 @@ public class Transaction implements ITransaction{
 
     @Override
     public String toString() {
-        String output = "\nTransaction type: " + this.type + 
-                        "\nTransaction amount: " + this.amount + 
-                        "\n";
-        return output;
+        // String output = "\nTransaction type: " + this.type + 
+        //                 "\nTransaction amount: " + this.amount + 
+        //                 "\n";
+        // return output;
+        return null;
     }
 }

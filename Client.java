@@ -42,21 +42,21 @@ public class Client implements IClient {
         return null;
     }
 
-    public final void setID(int id) {
+    public void setID(int id) {
         this.id = id;
     }
     public int getID() {
         return this.id;
     }
 
-    public final void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
     public String getFirstName() {
         return this.firstName;
     }
 
-    public final void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
     public String getLastName() {

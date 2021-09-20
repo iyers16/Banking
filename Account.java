@@ -11,9 +11,9 @@ public class Account implements IAccount {
     protected ArrayList<Transaction> transactionList;
 
     public Account() {
-        Account.incrementAccountCount();
-        this.balance = 0d;
-        this.owner = NULL;
+        ++Account.counter;
+        this.balance = 0.0d;
+        this.owner = null;
         this.accountNumber = Account.counter;
         this.transactionList = new ArrayList<Transaction>();
     }
@@ -24,7 +24,7 @@ public class Account implements IAccount {
         depo.setType("Deposit");
         depo.setAmount(d);
         this.transactionList.add(depo);
-        return balance;
+        return this.balance;
     }
 
     public double withdrawal(double w) {
@@ -33,7 +33,7 @@ public class Account implements IAccount {
         with.setType("Withdrawal");
         with.setAmount(w);
         this.transactionList.add(with);
-        return balance;
+        return this.balance;
     }
     public ArrayList<Transaction> getTransactionList() {
         return this.transactionList;
@@ -52,30 +52,27 @@ public class Account implements IAccount {
         return null;
     }
 
-    public final void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }
     public int getAccountNumber() {
         return this.accountNumber;
     }
 
-    public final void setBalance(double balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
     public double getBalance() {
         return this.balance;
     }
 
-    public final void setOwner(Client owner) {
+    public void setOwner(Client owner) {
         this.owner = owner;
     }
     public Client getOwner() {
         return this.owner;
     }
 
-    public static void incrementAccountCount() {
-        ++Account.counter;
-    }
     public static int getAccountCount() {
         return counter;
     }

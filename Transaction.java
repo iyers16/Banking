@@ -24,7 +24,7 @@ public class Transaction implements ITransaction{
     }
 
     @Override
-    String toString() {
+    public String toString() {
         String output = "\nTransaction type: " + this.type + 
 						"\nTransaction amount: " + this.amount + 
 						"\n";

@@ -7,14 +7,14 @@ public class Account implements IAccount {
     protected int accountNumber;
     protected double balance;
     protected Client owner;
-    private static int counter = 0;
+    protected static int counter = 0;
     protected ArrayList<Transaction> transactionList;
 
     public Account() {
         Account.incrementAccountCount();
         this.balance = 0d;
         this.owner = NULL;
-        this.accountNumber = this.counter;
+        this.accountNumber = Account.counter;
         this.transactionList = new ArrayList<Transaction>();
     }
 
@@ -44,11 +44,12 @@ public class Account implements IAccount {
 	}
 	
 	@Override
-	String toString() {
-		String output = "\nAccount Number: " + this.accountNumber +
-						"\nBalance: " + this.balance + 
-						"\nOwner: " + this.owner;
-		return output;
+	public String toString() {
+		// String output = "\nAccount Number: " + this.accountNumber +
+		// 				"\nBalance: " + this.balance + 
+		// 				"\nOwner: " + this.owner;
+		// return output;
+        return null;
 	}
 
     public final void setAccountNumber(int accountNumber) {
@@ -73,10 +74,10 @@ public class Account implements IAccount {
     }
 
     public static void incrementAccountCount() {
-        ++this.counter;
+        ++Account.counter;
     }
     public static int getAccountCount() {
-        return this.counter;
+        return counter;
     }
 
 }

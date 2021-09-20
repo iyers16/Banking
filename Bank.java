@@ -6,9 +6,9 @@ public class Bank implements IBank {
 	private ArrayList<Client> clientList;
 
 	public Bank() {
-		this.bankNumber = NULL;
-		this.address = NULL;
-		this.clientList = new ArrayList<Client>;
+		this.bankNumber = null;
+		this.address = null;
+		this.clientList = new ArrayList<Client>();
 	}
 	
 	public void addClient(Client newClient) {
@@ -24,25 +24,27 @@ public class Bank implements IBank {
 	}
 
     public Client getClient(int id) {
-		for(int i = 0; i < clientList.size(); i++) {
-			if(clientList.get(i).getID() == id) {
-				return clientList.get(i);
-			}
-		}
+		// for(int i = 0; i < clientList.size(); i++) {
+		// 	if(clientList.get(i).getID() == id) {
+		// 		return clientList.get(i);
+		// 	}
+		// }
+		return null;
 	}
 
     public Account getClientAccount(int clientId, int accountNumber) {
-		return getClient(clientId).getAccount(accountNumber);
+		// return this.getClient(clientId).getAccount(accountNumber);
+		return null;
 	}
 
-    public final void setBankNumber(String bankNumber) {
+    public void setBankNumber(String bankNumber) {
         this.bankNumber = bankNumber;
     }
     public String getBankNumber() {
         return this.bankNumber;
     }
 
-    public final void setAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
     public String getAddress() {

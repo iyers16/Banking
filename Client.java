@@ -6,7 +6,7 @@ public class Client implements IClient {
     private String firstName;
     private String lastName;
     private static int counter = 0;
-	private ArrayList<Account> accountList;
+		private ArrayList<Account> accountList;
 
 	public Client() {
 		++Client.counter;
@@ -16,13 +16,13 @@ public class Client implements IClient {
 		this.accountList = new ArrayList<Account>();
 	}
 
-	public void addAccount(Account newAccount) {
-		this.accountList.add(newAccount);
-	}
+		public void addAccount(Account newAccount) {
+			this.accountList.add(newAccount);
+		}
 
-	public void displayAccounts() {
-		System.out.println("List of accounts:\n" + this.accountList);
-	}
+		public void displayAccounts() {
+			System.out.println("List of accounts:\n" + this.accountList);
+		}
 
 	public Account getAccount(int accountNumber) {
         // for(int i = 0; i < accountList.size(); i++) {

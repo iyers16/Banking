@@ -1,69 +1,56 @@
-package banking;
+//done
+
+import java.util.ArrayList;
 
 public class Client implements IClient {
-
+    
     private int id;
     private String firstName;
     private String lastName;
     private static int counter = 0;
-    private ArrayList<Account> accountList;
-
-    public Client() {
+    private ArrayList<Account> accountList = new ArrayList<>();
+    
+    public Client(String fn, String ln) {
         ++Client.counter;
         this.id = Client.counter;
-        this.firstName = null;
-        this.lastName = null;
-        this.accountList = new ArrayList<Account>();
+        this.firstName = fn;
+        this.lastName = ln;
     }
 
-    public void addAccount(Account newAccount) {
-        this.accountList.add(newAccount);
+    public void addAccount(Account source) {
+        source.setOwner(this);
+        this.accountList.add(source);
     }
 
     public void displayAccounts() {
-        System.out.println("List of accounts:\n" + this.accountList);
+        for (Account account : accountList) {
+            System.out.println(account);
+        }
     }
 
-    public Account getAccount(int accountNumber) {
-        // for(int i = 0; i < accountList.size(); i++) {
-        //     if(accountList.get(i).getAccountNumber() == accountNumber) {
-        //         return accountList.get(i);
-        //     }
-        // }
-        return null;
+    public Account getAccount(int accNum) {
+        Account acc = this.accountList.stream()
+                                    .filter(account -> account.getAccountNumber() == (accNum))
+                                    .findFirst()
+                                    .orElse(null);
+        return acc;
     }
 
+    public ArrayList<Account> getAccounts() {return this.accountList;}
+    public void setAccounts(ArrayList<Account> source) {this.accountList = source;}
+
+    public int getId() {return this.id;}
+    public void setId(int source) {this.id = source;}
+    
+    public String getFirstName() {return this.firstName;}
+    public void setFirstName(String source) {this.firstName = source;}
+    public String getLastName() {return this.lastName;}
+    public void setLastName(String source) {this.lastName = source;}
+    
+    public int getClientCount() {return Client.counter;}
+    
     @Override
     public String toString() {
-        // String output = "\nClient ID: " + this.id +
-        // 				"\nClient first name: " + this.firstName +
-        // 				"\nClient last name: " + this.lastName;
-        // return output;
-        return null;
-    }
-
-    public void setID(int id) {
-        this.id = id;
-    }
-    public int getID() {
-        return this.id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public static int getClientCount() {
-        return Client.counter;
+        return " (" + this.id + ") " + this.lastName + ", " + this.firstName;
     }
 }

@@ -1,4 +1,4 @@
-package banking;
+//done
 
 import java.util.ArrayList;
 
@@ -8,73 +8,65 @@ public class Account implements IAccount {
     protected double balance;
     protected Client owner;
     protected static int counter = 0;
-    protected ArrayList<Transaction> transactionList;
+    protected ArrayList<Transaction> transactionList = new ArrayList<>();
+    protected final TypeOfAcc type;
 
-    public Account() {
+    public enum TypeOfAcc {
+        CHECKING, 
+        SAVINGS
+    }
+
+    public Account(Client c, TypeOfAcc at) {
         ++Account.counter;
-        this.balance = 0.0d;
-        this.owner = null;
         this.accountNumber = Account.counter;
-        this.transactionList = new ArrayList<Transaction>();
+        this.owner = c;
+        this.type = at;
+        this.balance = 0;
+    }
+
+    public Account(TypeOfAcc at) {
+        ++Account.counter;
+        this.accountNumber = Account.counter;
+        this.type = at;
+        this.balance = 0;
     }
 
     public double deposit(double d) {
-        Transaction depo = new Transaction();
         this.balance += d;
-        depo.setType("Deposit");
-        depo.setAmount(d);
-        this.transactionList.add(depo);
+        Transaction newDeposit = new Transaction(Transaction.TypeOfTransac.DEPOSIT, d);
+        this.transactionList.add(newDeposit);
         return this.balance;
     }
 
     public double withdrawal(double w) {
-        Transaction with = new Transaction();
         this.balance -= w;
-        with.setType("Withdrawal");
-        with.setAmount(w);
-        this.transactionList.add(with);
+        Transaction newWithdrawal = new Transaction(Transaction.TypeOfTransac.WITHDRAWAL, w);
+        this.transactionList.add(newWithdrawal);
         return this.balance;
-    }
-    public ArrayList<Transaction> getTransactionList() {
-        return this.transactionList;
     }
 
     public void displayAllTransactions() {
-        System.out.println("List of Transactions:\n" + this.transactionList);
+        for (Transaction transaction : transactionList) {
+            System.out.println(transaction);
+        }
     }
+
+    public Client getOwner() {return this.owner;}
+    public void setOwner(Client source) {this.owner = source;}
+
+    public int getAccountNumber() {return this.accountNumber;}
+    public void setAccountNumber(int source) {this.accountNumber = source;}
+    
+    public double getBalance() {return this.balance;}
+    public void setBalance(double source) {this.balance = source;}
+    
+    public ArrayList<Transaction> getTransactions() {return this.transactionList;}
+    public void setTransactions(ArrayList<Transaction> source) {this.transactionList = source;}
+
+    public int getAccountCount() {return Account.counter;}
 
     @Override
     public String toString() {
-        // String output = "\nAccount Number: " + this.accountNumber +
-        // 				"\nBalance: " + this.balance + 
-        // 				"\nOwner: " + this.owner;
-        // return output;
-        return null;
+        return this.type + "(" + this.accountNumber + ") $" + this.balance;
     }
-
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-    public int getAccountNumber() {
-        return this.accountNumber;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-    public double getBalance() {
-        return this.balance;
-    }
-
-    public void setOwner(Client owner) {
-        this.owner = owner;
-    }
-    public Client getOwner() {
-        return this.owner;
-    }
-
-    public static int getAccountCount() {
-        return counter;
-    }
-
 }

@@ -1,34 +1,30 @@
-package banking;
+//done
 
-public class Transaction implements ITransaction{
-    private String type;
+public class Transaction implements ITransaction {
+    private TypeOfTransac type;
     private double amount;
 
-    public Transaction() {
-        this.type = null;
-        this.amount = 0.0d;
+    public enum TypeOfTransac {
+        WITHDRAWAL, 
+        DEPOSIT
     }
 
-    public void setType(String type) {
+    public Transaction(TypeOfTransac type, double amount) {
         this.type = type;
-    }
-    public String getType() {
-        return this.type;
-    }
-
-    public void setAmount(double amount) {
         this.amount = amount;
     }
-    public double getAmount() {
-        return this.amount;
-    }
+    
+    public TypeOfTransac getType() {return this.type;}
+    
+    public void setType(TypeOfTransac source) {this.type = source;}
+    
+    public double getAmount() {return this.amount;}
+    
+    public void setAmount(double source) {this.amount = source;}
+
 
     @Override
     public String toString() {
-        // String output = "\nTransaction type: " + this.type + 
-        //                 "\nTransaction amount: " + this.amount + 
-        //                 "\n";
-        // return output;
-        return null;
+        return this.type + " of $ " + this.amount;
     }
 }
